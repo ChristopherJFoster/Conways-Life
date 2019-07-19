@@ -67,7 +67,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const MemoCell = React.memo(function Cell({
+const MemoizedCell = React.memo(function Cell({
   index,
   status,
   toggleCellManual,
@@ -123,4 +123,4 @@ const MemoCell = React.memo(function Cell({
   );
 });
 
-export default MemoCell;
+export default MemoizedCell;
