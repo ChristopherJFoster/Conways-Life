@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import makeStyles from '@material-ui/styles/makeStyles';
 // import useTheme from '@material-ui/styles/useTheme';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
 
 import useInterval from '../utilities/useInterval';
 import generate from '../utilities/generate';
@@ -11,6 +10,7 @@ import Grid from './Grid';
 import Controls from './Controls';
 import About from './About';
 import title from '../presets/title';
+import titleSVG from '../assets/titleSVG.svg';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -21,9 +21,12 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center'
   },
+  titleDiv: {
+    width: '60%',
+    margin: '10px 0 5px 0'
+  },
   title: {
-    color: [theme.palette.alive.c],
-    fontSize: '4em'
+    width: '100%'
   }
 }));
 
@@ -58,7 +61,7 @@ export default function GameOfLife() {
       tempCellData[index] = 90;
       setCellData(tempCellData);
     }
-    // The following is useful in devloping presets:
+    // // The following is useful in devloping presets:
     // const alive = [];
     // tempCellData.forEach((cell, index) => {
     //   if (cell % 10 === 1) {
@@ -146,7 +149,9 @@ export default function GameOfLife() {
 
   return (
     <Box className={classes.container}>
-      <Typography className={classes.title}>Conway's Life</Typography>
+      <div className={classes.titleDiv}>
+        <img className={classes.title} src={titleSVG} alt="Conway's Life" />;
+      </div>
       <Grid
         className={classes.grid}
         cellData={cellData}
