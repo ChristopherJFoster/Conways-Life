@@ -88,14 +88,16 @@ export default function GameOfLife() {
     setGeneration(0);
     setGridSize(gridSize);
     setDelay(delay);
-    const tempCellData = cellDataRef.current.map((cell, index) => {
-      if (data.includes(index)) {
-        return 91;
-      } else {
-        return 90;
-      }
-    });
-    setCellData(tempCellData);
+    setTimeout(() => {
+      const tempCellData = cellDataRef.current.map((cell, index) => {
+        if (data.includes(index)) {
+          return 91;
+        } else {
+          return 90;
+        }
+      });
+      setCellData(tempCellData);
+    }, 100);
   };
 
   const random = e => {
