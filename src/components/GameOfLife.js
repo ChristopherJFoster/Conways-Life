@@ -1,26 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import makeStyles from '@material-ui/styles/makeStyles';
 // import useTheme from '@material-ui/styles/useTheme';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 
 import useInterval from '../utilities/useInterval';
-import gosperCoords from '../utilities/gosperCoords';
-import oscillatorCoords from '../utilities/oscillatorCoords';
 import generate from '../utilities/generate';
 
 import Grid from './Grid';
 import Controls from './Controls';
+import About from './About';
+import title from '../presets/title';
 
 const useStyles = makeStyles(theme => ({
   container: {
-    border: '3px dashed teal',
-    width: '85vmin',
-    height: '85vmin',
-    background: [theme.palette.main]
+    margin: '0 auto',
+    width: '90vmin',
+    height: '90vmin',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   title: {
-    fontSize: '2em'
+    color: [theme.palette.alive.c],
+    fontSize: '4em'
   }
 }));
 
@@ -29,26 +32,33 @@ export default function GameOfLife() {
   // const theme = useTheme();
 
   const [cellData, setCellData] = useState([]);
-  const [gridSize, setGridSize] = useState(40);
+  const cellDataRef = useRef();
+  const [gridSize, setGridSize] = useState(20);
   const [generation, setGeneration] = useState(0);
-  const [delay, setDelay] = useState(2000);
+  const [delay, setDelay] = useState(50);
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
-    const tempCellData = Array(gridSize * gridSize).fill(40);
+    preset(null, title.gridSize, title.delay, title.data);
+  }, []);
+
+  useEffect(() => {
+    const tempCellData = Array(gridSize * gridSize).fill(90);
     setCellData(tempCellData);
+    cellDataRef.current = tempCellData;
   }, [gridSize]);
 
   const toggleCellManual = (e, index) => {
     e.preventDefault();
     const tempCellData = Array.from(cellData);
     if (cellData[index] % 10 === 0) {
-      tempCellData[index] = 41;
+      tempCellData[index] = 91;
       setCellData(tempCellData);
     } else {
-      tempCellData[index] = 40;
+      tempCellData[index] = 90;
       setCellData(tempCellData);
     }
+    // The following is useful in devloping presets:
     const alive = [];
     tempCellData.forEach((cell, index) => {
       if (cell % 10 === 1) {
@@ -70,32 +80,24 @@ export default function GameOfLife() {
     setDelay(value);
   };
 
-  const gosper = e => {
-    e.preventDefault();
+  const preset = (e, gridSize, delay, data) => {
+    if (e) {
+      e.preventDefault();
+    }
+    setIsRunning(false);
     setGeneration(0);
-    setGridSize(40);
-    const tempCellData = cellData.map((cell, index) => {
-      if (gosperCoords.includes(index)) {
-        return 41;
-      } else {
-        return 40;
-      }
-    });
-    setCellData(tempCellData);
-  };
-
-  const oscillator = e => {
-    e.preventDefault();
-    setGeneration(0);
-    setGridSize(30);
-    const tempCellData = cellData.map((cell, index) => {
-      if (oscillatorCoords.includes(index)) {
-        return 41;
-      } else {
-        return 40;
-      }
-    });
-    setCellData(tempCellData);
+    setGridSize(gridSize);
+    setDelay(delay);
+    setTimeout(() => {
+      const tempCellData = cellDataRef.current.map((cell, index) => {
+        if (data.includes(index)) {
+          return 91;
+        } else {
+          return 90;
+        }
+      });
+      setCellData(tempCellData);
+    }, 500);
   };
 
   const random = e => {
@@ -103,7 +105,7 @@ export default function GameOfLife() {
     setGeneration(0);
     setCellData(
       cellData.map(cell => {
-        return Math.round(Math.random()) === 1 ? 41 : 40;
+        return Math.round(Math.random()) === 1 ? 91 : 90;
       })
     );
   };
@@ -114,15 +116,19 @@ export default function GameOfLife() {
     setCellData(
       Array.apply(null, Array(gridSize * gridSize)).map(
         Number.prototype.valueOf,
-        40
+        90
       )
     );
   };
 
   const next = (gridSize, cellData) => {
     const tempCellData = generate(gridSize, cellData);
-    setCellData(tempCellData);
-    setGeneration(generation + 1);
+    if (!tempCellData) {
+      setIsRunning(false);
+    } else {
+      setCellData(tempCellData);
+      setGeneration(generation + 1);
+    }
   };
 
   useInterval(() => next(gridSize, cellData), isRunning ? delay : null);
@@ -140,8 +146,9 @@ export default function GameOfLife() {
 
   return (
     <Box className={classes.container}>
-      <Typography className={classes.title}>Game of Life</Typography>
+      <Typography className={classes.title}>Conway's Life</Typography>
       <Grid
+        className={classes.grid}
         cellData={cellData}
         gridSize={gridSize}
         toggleCellManual={toggleCellManual}
@@ -157,11 +164,11 @@ export default function GameOfLife() {
         cellData={cellData}
         playPause={playPause}
         step={step}
-        gosper={gosper}
-        oscillator={oscillator}
+        preset={preset}
         random={random}
         clear={clear}
       />
+      <About />
     </Box>
   );
 }

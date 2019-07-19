@@ -9,6 +9,9 @@ const useStyles = makeStyles(theme => ({
   },
   margin: {
     height: theme.spacing(3)
+  },
+  display: {
+    color: [theme.palette.alive.c]
   }
 }));
 
@@ -21,7 +24,7 @@ export default function DelaySlider({ delay, updateDelay }) {
 
   return (
     <div className={classes.root}>
-      <Typography id='discrete-slider' gutterBottom>
+      <Typography className={classes.display} id='discrete-slider' gutterBottom>
         Delay (lower is faster)
       </Typography>
       <Slider
@@ -30,9 +33,9 @@ export default function DelaySlider({ delay, updateDelay }) {
         getAriaValueText={valuetext}
         aria-labelledby='discrete-slider'
         valueLabelDisplay='auto'
-        step={100}
+        step={25}
         marks
-        min={100}
+        min={25}
         max={2000}
       />
     </div>
