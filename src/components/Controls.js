@@ -128,7 +128,7 @@ export default function Controls({
             preset(e, gliders.gridSize, gliders.delay, gliders.data)
           }
         >
-          School of Gliders
+          Flock of Gliders
         </Button>
         <Button
           className={classes.button}
