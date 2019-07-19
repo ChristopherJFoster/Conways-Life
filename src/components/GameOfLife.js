@@ -59,13 +59,13 @@ export default function GameOfLife() {
       setCellData(tempCellData);
     }
     // The following is useful in devloping presets:
-    const alive = [];
-    tempCellData.forEach((cell, index) => {
-      if (cell % 10 === 1) {
-        alive.push(index);
-      }
-    });
-    console.log(alive);
+    // const alive = [];
+    // tempCellData.forEach((cell, index) => {
+    //   if (cell % 10 === 1) {
+    //     alive.push(index);
+    //   }
+    // });
+    // console.log(alive);
   };
 
   const updateGridSize = (e, value) => {
@@ -88,16 +88,14 @@ export default function GameOfLife() {
     setGeneration(0);
     setGridSize(gridSize);
     setDelay(delay);
-    setTimeout(() => {
-      const tempCellData = cellDataRef.current.map((cell, index) => {
-        if (data.includes(index)) {
-          return 91;
-        } else {
-          return 90;
-        }
-      });
-      setCellData(tempCellData);
-    }, 500);
+    const tempCellData = cellDataRef.current.map((cell, index) => {
+      if (data.includes(index)) {
+        return 91;
+      } else {
+        return 90;
+      }
+    });
+    setCellData(tempCellData);
   };
 
   const random = e => {
