@@ -125,7 +125,10 @@ export default function Life() {
   };
 
   const next = (gridSize, cellData) => {
+    // const start = Date.now();
     const tempCellData = generate(gridSize, cellData);
+    // const end = Date.now();
+    // console.log(end - start);
     if (!tempCellData) {
       setIsRunning(false);
     } else {
