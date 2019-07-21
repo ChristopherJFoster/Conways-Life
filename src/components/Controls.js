@@ -4,15 +4,10 @@ import makeStyles from '@material-ui/styles/makeStyles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
+import PresetMenu from './PresetMenu';
 import GridSizeSlider from './GridSizeSlider';
 import DelaySlider from './DelaySlider';
-import gosper from '../presets/gosper';
-import oscillators from '../presets/oscillators';
-import gliders from '../presets/gliders';
-import LWSSs from '../presets/LWSSs';
-import MWSSs from '../presets/MWSSs';
-import HWSSs from '../presets/HWSSs';
-import title from '../presets/title';
+import playPauseIcon from '../assets/SVGs/playPauseIcon.svg';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -32,22 +27,20 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
     alignItems: 'center'
   },
-  middleRow: {
+  bottomRow: {
     padding: '10px 0',
     display: 'grid',
     gridTemplateColumns: '15% 10% 10% 10% 15% 10% ',
     justifyContent: 'space-between'
   },
-  bottomRow: {
-    padding: '10px 0',
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr',
-    justifyContent: 'space-between'
-  },
   button: {
-    background: [theme.palette.dead.e],
+    background: [theme.palette.dead.a],
     color: [theme.palette.alive.a],
     border: `1px solid ${[theme.palette.alive.a]}`
+  },
+  playPauseIcon: {
+    width: '50%',
+    padding: '10%'
   }
 }));
 
@@ -75,13 +68,17 @@ export default function Controls({
         <GridSizeSlider gridSize={gridSize} updateGridSize={updateGridSize} />
         <DelaySlider delay={delay} updateDelay={updateDelay} />
       </div>
-      <div className={classes.middleRow}>
+      <div className={classes.bottomRow}>
         <Button
           className={classes.button}
           size='small'
           onClick={e => playPause(e)}
         >
-          Play / Pause
+          <img
+            className={classes.playPauseIcon}
+            src={playPauseIcon}
+            alt='Play / Pause'
+          />
         </Button>
         <Button className={classes.button} size='small' onClick={e => step(e)}>
           Step
@@ -96,61 +93,7 @@ export default function Controls({
         <Button className={classes.button} size='small' onClick={e => clear(e)}>
           Clear
         </Button>
-        <Button
-          className={classes.button}
-          size='small'
-          onClick={e => preset(e, title.gridSize, title.delay, title.data)}
-        >
-          Title
-        </Button>
-      </div>
-      <div className={classes.bottomRow}>
-        <Button
-          className={classes.button}
-          size='small'
-          onClick={e => preset(e, gosper.gridSize, gosper.delay, gosper.data)}
-        >
-          Gosper Gun
-        </Button>
-        <Button
-          className={classes.button}
-          size='small'
-          onClick={e =>
-            preset(e, oscillators.gridSize, oscillators.delay, oscillators.data)
-          }
-        >
-          Oscillators
-        </Button>
-        <Button
-          className={classes.button}
-          size='small'
-          onClick={e =>
-            preset(e, gliders.gridSize, gliders.delay, gliders.data)
-          }
-        >
-          Flock of Gliders
-        </Button>
-        <Button
-          className={classes.button}
-          size='small'
-          onClick={e => preset(e, LWSSs.gridSize, LWSSs.delay, LWSSs.data)}
-        >
-          Lightweight Spaceships
-        </Button>
-        <Button
-          className={classes.button}
-          size='small'
-          onClick={e => preset(e, MWSSs.gridSize, MWSSs.delay, MWSSs.data)}
-        >
-          Middleweight Spaceships
-        </Button>
-        <Button
-          className={classes.button}
-          size='small'
-          onClick={e => preset(e, HWSSs.gridSize, HWSSs.delay, HWSSs.data)}
-        >
-          Heavyweight Spaceships
-        </Button>
+        <PresetMenu preset={preset} />
       </div>
     </div>
   );
