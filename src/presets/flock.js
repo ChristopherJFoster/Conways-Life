@@ -1,4 +1,4 @@
-const gliders = {
+const flock = {
   gridSize: 20,
   delay: 25,
   data: [
@@ -55,4 +55,4 @@ const gliders = {
   ]
 };
 
-export default gliders;
+export default flock;
