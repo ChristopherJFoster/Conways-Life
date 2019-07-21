@@ -12,10 +12,10 @@ export default createMuiTheme({
       xl: 1800
     }
   },
-  slider: {
-    trackColor: 'yellow',
-    selectionColor: 'green'
-  },
+  // slider: {
+  //   trackColor: 'yellow',
+  //   selectionColor: 'green'
+  // },
   palette: {
     main: '#242424',
     alive: {
@@ -42,5 +42,8 @@ export default createMuiTheme({
       h: '#00002e',
       i: '#000000'
     }
+  },
+  typography: {
+    fontFamily: 'c64_proregular'
   }
 });
