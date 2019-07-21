@@ -5,8 +5,9 @@ import Box from '@material-ui/core/Box';
 
 import useInterval from '../utilities/useInterval';
 import generate from '../utilities/generate';
+import BreakpointDisplay from '../utilities/BreakpointDisplay';
 
-import titleSVG from '../assets/titleSVG.svg';
+import C64_Title from '../assets/SVGs/C64_Title.svg';
 import Grid from './Grid';
 import Controls from './Controls';
 import About from './About';
@@ -22,11 +23,16 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center'
   },
   titleDiv: {
-    width: '60%',
-    margin: '10px 0 5px 0'
+    width: '70%',
+    margin: '30px 0 5px 0'
   },
   title: {
     width: '100%'
+  },
+  breakpointDisplayDiv: {
+    position: 'absolute',
+    padding: '0 20px',
+    background: 'rgba(0%, 0%, 0%, .65)'
   }
 }));
 
@@ -40,6 +46,7 @@ export default function Life() {
   const [generation, setGeneration] = useState(0);
   const [delay, setDelay] = useState(50);
   const [isRunning, setIsRunning] = useState(false);
+  const styleMode = true;
 
   useEffect(() => {
     preset(null, title.gridSize, title.delay, title.data);
@@ -61,14 +68,14 @@ export default function Life() {
       tempCellData[index] = 90;
       setCellData(tempCellData);
     }
-    // // The following is useful in devloping presets:
-    // const alive = [];
-    // tempCellData.forEach((cell, index) => {
-    //   if (cell % 10 === 1) {
-    //     alive.push(index);
-    //   }
-    // });
-    // console.log(alive);
+    // The following is useful in devloping presets:
+    const alive = [];
+    tempCellData.forEach((cell, index) => {
+      if (cell % 10 === 1) {
+        alive.push(index);
+      }
+    });
+    console.log(alive);
   };
 
   const updateGridSize = (e, value) => {
@@ -152,8 +159,13 @@ export default function Life() {
 
   return (
     <Box className={classes.container}>
+      {styleMode === true && (
+        <div className={classes.breakpointDisplayDiv}>
+          <BreakpointDisplay />
+        </div>
+      )}
       <div className={classes.titleDiv}>
-        <img className={classes.title} src={titleSVG} alt="Conway's Life" />;
+        <img className={classes.title} src={C64_Title} alt="Conway's Life" />
       </div>
       <Grid
         className={classes.grid}
