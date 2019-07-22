@@ -46,7 +46,7 @@ export default function Life() {
   const [generation, setGeneration] = useState(0);
   const [delay, setDelay] = useState(50);
   const [isRunning, setIsRunning] = useState(false);
-  const devMode = true;
+  const devMode = false;
 
   useEffect(() => {
     preset(null, title.gridSize, title.delay, title.data);
