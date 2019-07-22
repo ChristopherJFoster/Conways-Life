@@ -46,7 +46,7 @@ export default function Life() {
   const [generation, setGeneration] = useState(0);
   const [delay, setDelay] = useState(50);
   const [isRunning, setIsRunning] = useState(false);
-  const devMode = false;
+  // const devMode = true;
 
   useEffect(() => {
     preset(null, title.gridSize, title.delay, title.data);
@@ -69,7 +69,7 @@ export default function Life() {
       setCellData(tempCellData);
     }
     // The following is useful in devloping presets:
-    if (devMode === true) {
+    if (process.env.REACT_APP_DEV_MODE === 'on') {
       const alive = [];
       tempCellData.forEach((cell, index) => {
         if (cell % 10 === 1) {
@@ -161,7 +161,7 @@ export default function Life() {
 
   return (
     <Box className={classes.container}>
-      {devMode === true && (
+      {process.env.REACT_APP_DEV_MODE === 'on' && (
         <div className={classes.breakpointDisplayDiv}>
           <BreakpointDisplay />
         </div>
