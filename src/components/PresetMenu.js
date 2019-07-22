@@ -39,6 +39,8 @@ const StyledMenu = withStyles(theme => ({
 
 const StyledButton = withStyles(theme => ({
   root: {
+    paddingTop: '10px',
+    fontSize: '20px',
     background: theme.palette.dead.a,
     color: theme.palette.alive.a,
     border: `1px solid ${theme.palette.dead.a}`,
