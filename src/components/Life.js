@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
   titleDiv: {
     width: '70%',
-    margin: '30px 0 5px 0'
+    margin: '20px 0 10px 0'
   },
   title: {
     width: '100%'
@@ -46,7 +46,6 @@ export default function Life() {
   const [generation, setGeneration] = useState(0);
   const [delay, setDelay] = useState(50);
   const [isRunning, setIsRunning] = useState(false);
-  // const devMode = true;
 
   useEffect(() => {
     preset(null, title.gridSize, title.delay, title.data);

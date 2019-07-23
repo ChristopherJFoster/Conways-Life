@@ -17,9 +17,10 @@ import title from '../presets/title';
 
 const StyledMenu = withStyles(theme => ({
   paper: {
-    border: '1px solid #d3d4d5',
     background: [theme.palette.dead.e],
-    color: [theme.palette.alive.a]
+    color: [theme.palette.alive.a],
+    border: `3px solid ${theme.palette.alive.a}`,
+    borderRadius: 0
   }
 }))(props => (
   <Menu
@@ -39,14 +40,26 @@ const StyledMenu = withStyles(theme => ({
 
 const StyledButton = withStyles(theme => ({
   root: {
-    paddingTop: '10px',
-    fontSize: '20px',
+    padding: '5px 15px 0 15px',
     background: theme.palette.dead.a,
     color: theme.palette.alive.a,
-    border: `1px solid ${theme.palette.dead.a}`,
+    border: `3px solid ${theme.palette.alive.a}`,
+    borderRadius: 0,
     '&:hover': {
       backgroundColor: theme.palette.dead.b,
       color: theme.palette.alive.i
+    },
+    [theme.breakpoints.down('xl')]: {
+      fontSize: '1.2em'
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1em'
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '.8em'
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '.6em'
     }
   }
 }))(Button);
@@ -80,7 +93,7 @@ export default function PresetMenu({ preset }) {
   }
 
   return (
-    <div>
+    <>
       <StyledButton
         aria-controls='customized-menu'
         aria-haspopup='true'
@@ -166,6 +179,6 @@ export default function PresetMenu({ preset }) {
           />
         </StyledMenuItem>
       </StyledMenu>
-    </div>
+    </>
   );
 }

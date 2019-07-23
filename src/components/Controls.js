@@ -37,28 +37,48 @@ const useStyles = makeStyles(theme => ({
     padding: '0 20px',
     background: theme.palette.dead.a,
     fill: theme.palette.alive.a,
-    border: `1px solid ${theme.palette.dead.a}`,
+    border: `3px solid ${theme.palette.alive.a}`,
+    borderRadius: 0,
     '&:hover': {
       backgroundColor: theme.palette.dead.b,
       fill: theme.palette.alive.i
     }
   },
   playPauseIcon: {
-    width: '50%'
+    [theme.breakpoints.down('xl')]: {
+      width: '50%'
+    },
+    [theme.breakpoints.down('md')]: {
+      width: '40%'
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '30%'
+    }
   }
 }));
 
 const StyledButton = withStyles(theme => ({
   root: {
-    padding: '10px 20px 0 20px',
-    // paddingTop: '10px',
-    fontSize: '20px',
+    padding: '5px 15px 0 15px',
     background: theme.palette.dead.a,
     color: theme.palette.alive.a,
-    border: `1px solid ${theme.palette.dead.a}`,
+    border: `3px solid ${theme.palette.alive.a}`,
+    borderRadius: 0,
     '&:hover': {
       backgroundColor: theme.palette.dead.b,
       color: theme.palette.alive.i
+    },
+    [theme.breakpoints.down('xl')]: {
+      fontSize: '1.2em'
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1em'
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '.8em'
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '.6em'
     }
   }
 }))(Button);
@@ -102,7 +122,17 @@ export default function Controls({
             <rect x='80' width='10' height='45' />
           </svg>
         </Button>
-        <StyledButton onClick={e => step(e)}>Step</StyledButton>
+        <Button className={classes.playPauseButton} onClick={e => step(e)}>
+          <svg
+            className={classes.playPauseIcon}
+            xmlns='http://www.w3.org/2000/svg'
+            width='55'
+            height='45'
+            viewBox='0 0 55 45'
+          >
+            <path d='M45 0v20H35v-5H25v-5H15V5H5V0H0v45h5v-5h10v-5h10v-5h10v-5h10v20h10V0H45z' />
+          </svg>
+        </Button>
         <StyledButton onClick={e => random(e)}>Random</StyledButton>
         <StyledButton onClick={e => clear(e)}>Clear</StyledButton>
         <PresetMenu preset={preset} />
