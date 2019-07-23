@@ -1,7 +1,7 @@
 const glider = {
-  gridSize: 20,
+  gridSize: 10,
   delay: 25,
-  data: [152, 173, 174, 192, 193]
+  data: [15, 17, 26, 27, 36]
 };
 
 export default glider;
