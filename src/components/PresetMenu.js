@@ -140,6 +140,14 @@ export default function PresetMenu({ preset }) {
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemText
+            primary='Gosper Glider Gun'
+            onClick={e =>
+              presetHandler(e, gosper.gridSize, gosper.delay, gosper.data)
+            }
+          />
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <ListItemText
             primary='Lightweight Spaceships'
             onClick={e =>
               presetHandler(e, LWSSs.gridSize, LWSSs.delay, LWSSs.data)
@@ -164,15 +172,7 @@ export default function PresetMenu({ preset }) {
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemText
-            primary='Gosper Glider Gun'
-            onClick={e =>
-              presetHandler(e, gosper.gridSize, gosper.delay, gosper.data)
-            }
-          />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText
-            primary='Title'
+            primary="Conway's Life"
             onClick={e =>
               presetHandler(e, title.gridSize, title.delay, title.data)
             }
