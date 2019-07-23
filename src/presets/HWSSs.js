@@ -1,6 +1,6 @@
 const HWSSs = {
   gridSize: 20,
-  delay: 50,
+  delay: 25,
   data: [
     67,
     68,
