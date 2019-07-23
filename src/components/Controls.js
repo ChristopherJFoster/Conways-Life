@@ -54,6 +54,17 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       width: '30%'
     }
+  },
+  randomIcon: {
+    [theme.breakpoints.down('xl')]: {
+      width: '100%'
+    },
+    [theme.breakpoints.down('md')]: {
+      width: '100%'
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '30%'
+    }
   }
 }));
 
@@ -133,7 +144,16 @@ export default function Controls({
             <path d='M45 0v20H35v-5H25v-5H15V5H5V0H0v45h5v-5h10v-5h10v-5h10v-5h10v20h10V0H45z' />
           </svg>
         </Button>
-        <StyledButton onClick={e => random(e)}>Random</StyledButton>
+        <Button className={classes.playPauseButton} onClick={e => random(e)}>
+          <svg
+            className={classes.randomIcon}
+            xmlns='http://www.w3.org/2000/svg'
+            width='100'
+            height='40'
+          >
+            <path d='M0 10h10v10H0zM30 0h10v10H30zM40 0h10v10H40zM50 10h10v10H50zM10 20h10v10H10zM10 30h10v10H10zM30 30h10v10H30zM60 20h10v10H60zM50 30h10v10H50zM60 10h10v10H60zM70 20h10v10H70zM60 0h10v10H60zM90 30h10v10H90zM80 10h10v10H80zM40 10h10v10H40zM90 0h10v10H90zM10 0h10v10H10z' />
+          </svg>
+        </Button>
         <StyledButton onClick={e => clear(e)}>Clear</StyledButton>
         <PresetMenu preset={preset} />
       </div>
