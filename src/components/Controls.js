@@ -29,7 +29,9 @@ const useStyles = makeStyles(theme => ({
   bottomRow: {
     padding: '10px 0',
     display: 'grid',
-    gridTemplateColumns: 'auto auto auto auto auto',
+    // gridTemplateColumns: 'repeat(5, minmax(45px, 1fr))',
+    gridTemplateColumns:
+      'repeat(4, [col-start] minmax(45px, 65px) [col-end]) [col-start] minmax(140px, 140px) [col-end]',
     justifyContent: 'space-between'
   },
   playPauseButton: {
@@ -43,29 +45,29 @@ const useStyles = makeStyles(theme => ({
       fill: theme.palette.alive.i
     }
   },
-  playPauseIcon: {
-    [theme.breakpoints.down('xl')]: {
-      width: '10%'
-    },
-    [theme.breakpoints.down('md')]: {
-      width: '50%',
-      height: '50%'
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: '100%'
-    }
-  },
-  stepIcon: {
-    [theme.breakpoints.down('xl')]: {
-      width: '100%'
-    },
-    [theme.breakpoints.down('md')]: {
-      width: '100%'
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: '100%'
-    }
-  },
+  // playPauseIcon: {
+  //   [theme.breakpoints.down('xl')]: {
+  //     width: '10%'
+  //   },
+  //   [theme.breakpoints.down('md')]: {
+  //     width: '50%',
+  //     height: '50%'
+  //   },
+  //   [theme.breakpoints.down('sm')]: {
+  //     width: '100%'
+  //   }
+  // },
+  // stepIcon: {
+  //   [theme.breakpoints.down('xl')]: {
+  //     width: '100%'
+  //   },
+  //   [theme.breakpoints.down('md')]: {
+  //     width: '100%'
+  //   },
+  //   [theme.breakpoints.down('sm')]: {
+  //     width: '100%'
+  //   }
+  // },
   randomButton: {
     background: theme.palette.dead.a,
     border: `3px solid ${theme.palette.alive.a}`,
@@ -75,17 +77,17 @@ const useStyles = makeStyles(theme => ({
       background: theme.palette.dead.c
     }
   },
-  randomIcon: {
-    [theme.breakpoints.down('xl')]: {
-      width: '100%'
-    },
-    [theme.breakpoints.down('md')]: {
-      width: '100%'
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: '100%'
-    }
-  },
+  // randomIcon: {
+  //   [theme.breakpoints.down('xl')]: {
+  //     width: '100%'
+  //   },
+  //   [theme.breakpoints.down('md')]: {
+  //     width: '100%'
+  //   },
+  //   [theme.breakpoints.down('sm')]: {
+  //     width: '100%'
+  //   }
+  // },
   randomIconBack: {
     position: 'absolute',
     fill: theme.palette.dead.i
@@ -107,17 +109,17 @@ const useStyles = makeStyles(theme => ({
       background: theme.palette.dead.c
     }
   },
-  clearIcon: {
-    [theme.breakpoints.down('xl')]: {
-      width: '100%'
-    },
-    [theme.breakpoints.down('md')]: {
-      width: '100%'
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: '100%'
-    }
-  },
+  // clearIcon: {
+  //   [theme.breakpoints.down('xl')]: {
+  //     width: '100%'
+  //   },
+  //   [theme.breakpoints.down('md')]: {
+  //     width: '100%'
+  //   },
+  //   [theme.breakpoints.down('sm')]: {
+  //     width: '100%'
+  //   }
+  // },
   clearIconBack: {
     fill: theme.palette.dead.i
   }
