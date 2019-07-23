@@ -17,7 +17,7 @@ import title from '../presets/title';
 
 const StyledMenu = withStyles(theme => ({
   paper: {
-    background: [theme.palette.dead.e],
+    background: [theme.palette.dead.a],
     color: [theme.palette.alive.a],
     border: `3px solid ${theme.palette.alive.a}`,
     borderRadius: 0
@@ -46,7 +46,8 @@ const StyledButton = withStyles(theme => ({
     border: `3px solid ${theme.palette.alive.a}`,
     borderRadius: 0,
     '&:hover': {
-      backgroundColor: theme.palette.dead.b,
+      border: `3px solid ${theme.palette.alive.i}`,
+      backgroundColor: theme.palette.dead.c,
       color: theme.palette.alive.i
     },
     [theme.breakpoints.down('xl')]: {
@@ -67,7 +68,7 @@ const StyledButton = withStyles(theme => ({
 const StyledMenuItem = withStyles(theme => ({
   root: {
     '&:hover': {
-      backgroundColor: theme.palette.dead.a,
+      backgroundColor: theme.palette.dead.c,
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
         color: theme.palette.alive.i
       }

@@ -3,6 +3,9 @@ import { createMuiTheme } from '@material-ui/core/styles';
 export default createMuiTheme({
   variables: {},
   navLinks: {},
+  transitions: {
+    create: () => 'none'
+  },
   breakpoints: {
     values: {
       xs: 0,
