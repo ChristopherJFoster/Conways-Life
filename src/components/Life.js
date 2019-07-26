@@ -68,7 +68,7 @@ export default function Life() {
       tempCellData[index] = 90;
       setCellData(tempCellData);
     }
-    // The following is useful in devloping presets:
+    // The following is useful in developing presets:
     if (process.env.REACT_APP_DEV_MODE === 'on') {
       const alive = [];
       tempCellData.forEach((cell, index) => {

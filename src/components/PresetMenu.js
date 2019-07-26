@@ -84,9 +84,9 @@ export default function PresetMenu({ preset, setIsRunning }) {
     setAnchorEl(event.currentTarget);
   }
 
-  function presetHandler(e, gridSize, delay, data) {
+  function presetHandler(e, gridSize, speed, data) {
     setIsRunning(false);
-    preset(e, gridSize, delay, data);
+    preset(e, gridSize, speed, data);
     handleClose();
   }
 
@@ -118,7 +118,7 @@ export default function PresetMenu({ preset, setIsRunning }) {
               presetHandler(
                 e,
                 oscillators.gridSize,
-                oscillators.delay,
+                oscillators.speed,
                 oscillators.data
               )
             }
@@ -128,7 +128,7 @@ export default function PresetMenu({ preset, setIsRunning }) {
           <ListItemText
             primary='Glider'
             onClick={e =>
-              presetHandler(e, glider.gridSize, glider.delay, glider.data)
+              presetHandler(e, glider.gridSize, glider.speed, glider.data)
             }
           />
         </StyledMenuItem>
@@ -136,7 +136,7 @@ export default function PresetMenu({ preset, setIsRunning }) {
           <ListItemText
             primary='Flock of Gliders'
             onClick={e =>
-              presetHandler(e, flock.gridSize, flock.delay, flock.data)
+              presetHandler(e, flock.gridSize, flock.speed, flock.data)
             }
           />
         </StyledMenuItem>
@@ -144,7 +144,7 @@ export default function PresetMenu({ preset, setIsRunning }) {
           <ListItemText
             primary='Gosper Glider Gun'
             onClick={e =>
-              presetHandler(e, gosper.gridSize, gosper.delay, gosper.data)
+              presetHandler(e, gosper.gridSize, gosper.speed, gosper.data)
             }
           />
         </StyledMenuItem>
@@ -152,7 +152,7 @@ export default function PresetMenu({ preset, setIsRunning }) {
           <ListItemText
             primary='Lightweight Spaceships'
             onClick={e =>
-              presetHandler(e, LWSSs.gridSize, LWSSs.delay, LWSSs.data)
+              presetHandler(e, LWSSs.gridSize, LWSSs.speed, LWSSs.data)
             }
           />
         </StyledMenuItem>
@@ -160,7 +160,7 @@ export default function PresetMenu({ preset, setIsRunning }) {
           <ListItemText
             primary='Mediumweight Spaceship'
             onClick={e =>
-              presetHandler(e, MWSS.gridSize, MWSS.delay, MWSS.data)
+              presetHandler(e, MWSS.gridSize, MWSS.speed, MWSS.data)
             }
           />
         </StyledMenuItem>
@@ -168,7 +168,7 @@ export default function PresetMenu({ preset, setIsRunning }) {
           <ListItemText
             primary='Heavyweight Spaceship'
             onClick={e =>
-              presetHandler(e, HWSS.gridSize, HWSS.delay, HWSS.data)
+              presetHandler(e, HWSS.gridSize, HWSS.speed, HWSS.data)
             }
           />
         </StyledMenuItem>
@@ -176,7 +176,7 @@ export default function PresetMenu({ preset, setIsRunning }) {
           <ListItemText
             primary="Conway's Life"
             onClick={e =>
-              presetHandler(e, title.gridSize, title.delay, title.data)
+              presetHandler(e, title.gridSize, title.speed, title.data)
             }
           />
         </StyledMenuItem>
