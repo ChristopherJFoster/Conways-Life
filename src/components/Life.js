@@ -46,7 +46,7 @@ export default function Life() {
   const [generation, setGeneration] = useState(0);
   const [speed, setSpeed] = useState(5);
   const [isRunning, setIsRunning] = useState(false);
-  const speedToDelay = { 1: 500, 2: 200, 3: 100, 4: 50, 5: 25 };
+  const speedToDelay = { 1: 1000, 2: 500, 3: 200, 4: 75, 5: 25 };
 
   useEffect(() => {
     preset(null, title.gridSize, title.speed, title.data);
@@ -89,7 +89,9 @@ export default function Life() {
   };
 
   const updateSpeed = (e, value) => {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     setSpeed(value);
   };
 
@@ -183,10 +185,10 @@ export default function Life() {
         isRunning={isRunning}
       />
       <Controls
-        speed={speed}
-        updateSpeed={updateSpeed}
         gridSize={gridSize}
         updateGridSize={updateGridSize}
+        speed={speed}
+        updateSpeed={updateSpeed}
         generation={generation}
         cellData={cellData}
         playPause={playPause}

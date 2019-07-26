@@ -92,6 +92,7 @@ export default function SpeedSlider({ speed, updateSpeed }) {
         valueLabelDisplay='off'
         aria-label='speed slider'
         marks={marks}
+        step={1}
         min={1}
         max={5}
       />
