@@ -39,6 +39,13 @@ const StyledMenu = withStyles(theme => ({
   />
 ));
 
+const subtract40 = array => {
+  const result = array.map(number => number - 40);
+  return result;
+};
+
+console.log(subtract40(conway.data));
+
 const StyledButton = withStyles(theme => ({
   root: {
     padding: '5px 15px 0 15px',
