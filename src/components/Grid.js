@@ -5,9 +5,14 @@ import makeStyles from '@material-ui/styles/makeStyles';
 import MemoizedCell from './MemoizedCell';
 
 const useStyles = makeStyles(theme => ({
-  grid: {
-    border: `2px solid ${theme.palette.dead.b}`,
-    borderRadius: '8px',
+  gridPaused: {
+    border: `3px solid ${theme.palette.alive.a}`,
+    width: '75%',
+    height: '75%',
+    display: 'grid'
+  },
+  gridRunning: {
+    border: `3px solid ${theme.palette.alive.i}`,
     width: '75%',
     height: '75%',
     display: 'grid'
@@ -25,7 +30,7 @@ export default function Grid({
 
   return (
     <div
-      className={classes.grid}
+      className={isRunning ? classes.gridRunning : classes.gridPaused}
       style={{
         gridTemplate: `repeat(${gridSize}, 1fr) / repeat(${gridSize}, 1fr)`
       }}

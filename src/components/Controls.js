@@ -15,16 +15,19 @@ const useStyles = makeStyles(theme => ({
   display: {
     color: [theme.palette.alive.c]
   },
+  topRow: {
+    padding: '10px 0',
+    display: 'grid',
+    gridTemplateColumns: '40% 30% 30%',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
   generation: {
     color: [theme.palette.alive.c],
     fontSize: '1.5em'
   },
-  topRow: {
-    padding: '10px 0',
-    display: 'grid',
-    gridTemplateColumns: '30% 35% 35%',
-    justifyContent: 'space-between',
-    alignItems: 'center'
+  genData: {
+    color: theme.palette.alive.i
   },
   bottomRow: {
     padding: '10px 0',
@@ -98,7 +101,7 @@ export default function Controls({
     <div className={classes.container}>
       <div className={classes.topRow}>
         <Typography className={classes.generation}>
-          Generation: {generation}
+          Generation: <span className={classes.genData}>{generation}</span>
         </Typography>
         <GridSizeSlider gridSize={gridSize} updateGridSize={updateGridSize} />
         <SpeedSlider speed={speed} updateSpeed={updateSpeed} />
