@@ -42,7 +42,7 @@ export default function Life() {
 
   const [cellData, setCellData] = useState([]);
   const cellDataRef = useRef();
-  const [gridSize, setGridSize] = useState(20);
+  const [gridSize, setGridSize] = useState(40);
   const [generation, setGeneration] = useState(0);
   const [speed, setSpeed] = useState(5);
   const [isRunning, setIsRunning] = useState(false);

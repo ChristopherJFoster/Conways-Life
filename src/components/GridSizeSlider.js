@@ -1,40 +1,98 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: 300
+    width: 150,
+    padding: 24
   },
   margin: {
     height: theme.spacing(3)
   },
-  display: {
-    color: [theme.palette.alive.c]
+  sliderLabel: {
+    color: theme.palette.alive.a
   }
 }));
 
-function valuetext(value) {
-  return `${value}`;
-}
+const marks = [
+  {
+    value: 10,
+    label: 10
+  },
+  {
+    value: 20,
+    label: 20
+  },
+  {
+    value: 30,
+    label: 30
+  },
+  {
+    value: 40,
+    label: 40
+  },
+  {
+    value: 50,
+    label: 50
+  }
+];
 
-export default function GridSizeSlider({ gridSize, updateGridSize }) {
+const StyledSlider = withStyles(theme => ({
+  root: {
+    color: theme.palette.alive.a,
+    height: 8
+  },
+  thumb: {
+    height: 24,
+    width: 24,
+    borderRadius: '0',
+    backgroundColor: theme.palette.dead.a,
+    border: `2px solid ${theme.palette.alive.a}`,
+    marginTop: -8,
+    marginLeft: -12,
+    '&:focus,&:hover,&$active': {
+      boxShadow: 'inherit',
+      backgroundColor: theme.palette.dead.c,
+      border: `2px solid ${theme.palette.alive.i}`
+    }
+  },
+  active: {
+    border: `2px solid ${theme.palette.alive.i}`
+  },
+  track: {
+    height: 8,
+    borderRadius: 0
+  },
+  rail: {
+    height: 8,
+    borderRadius: 0
+  },
+  mark: {
+    display: 'none'
+  },
+  markLabel: {
+    paddingTop: '10px',
+    color: theme.palette.alive.a
+  }
+}))(Slider);
+
+export default function SpeedSlider({ gridSize, updateGridSize }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Typography className={classes.display} id='discrete-slider' gutterBottom>
+      <Typography className={classes.sliderLabel} gutterBottom>
         Grid Size
       </Typography>
-      <Slider
+      <StyledSlider
         onChange={(e, value) => updateGridSize(e, value)}
         value={gridSize}
-        getAriaValueText={valuetext}
-        aria-labelledby='discrete-slider'
-        valueLabelDisplay='auto'
+        valueLabelDisplay='off'
+        aria-label='grid size slider'
+        marks={marks}
         step={10}
-        marks
         min={10}
         max={50}
       />
