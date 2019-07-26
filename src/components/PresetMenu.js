@@ -9,6 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import oscillators from '../presets/oscillators';
 import glider from '../presets/glider';
 import flock from '../presets/flock';
+import largeflock from '../presets/largeflock';
 import LWSSs from '../presets/LWSSs';
 import MWSS from '../presets/MWSSs';
 import HWSS from '../presets/HWSSs';
@@ -137,6 +138,19 @@ export default function PresetMenu({ preset, setIsRunning }) {
             primary='Flock of Gliders'
             onClick={e =>
               presetHandler(e, flock.gridSize, flock.speed, flock.data)
+            }
+          />
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <ListItemText
+            primary='Large Flock of Gliders'
+            onClick={e =>
+              presetHandler(
+                e,
+                largeflock.gridSize,
+                largeflock.speed,
+                largeflock.data
+              )
             }
           />
         </StyledMenuItem>
