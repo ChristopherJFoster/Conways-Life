@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   bottomRow: {
     padding: '10px 0',
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, minmax(45px, 65px)) minmax(140px, 140px)',
+    gridTemplateColumns: 'repeat(4, minmax(45px, 45px)) minmax(140px, 140px)',
     justifyContent: 'space-between'
   },
   playPauseButton: {
@@ -88,7 +88,8 @@ export default function Controls({
   updateSpeed,
   preset,
   updateGridSize,
-  clear
+  clear,
+  setIsRunning
 }) {
   const classes = useStyles();
   // const theme = useTheme();
@@ -147,7 +148,7 @@ export default function Controls({
             <path d='M0 0h40v40H0z' />
           </svg>
         </Button>
-        <PresetMenu preset={preset} />
+        <PresetMenu preset={preset} setIsRunning={setIsRunning} />
       </div>
     </div>
   );

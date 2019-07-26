@@ -45,18 +45,12 @@ export default function Life() {
   const [gridSize, setGridSize] = useState(20);
   const [generation, setGeneration] = useState(0);
   const [speed, setSpeed] = useState(5);
-  // const [delay, setDelay] = useState(25);
   const [isRunning, setIsRunning] = useState(false);
   const speedToDelay = { 1: 500, 2: 200, 3: 100, 4: 50, 5: 25 };
 
   useEffect(() => {
     preset(null, title.gridSize, title.speed, title.data);
   }, []);
-
-  // useEffect(() => {
-  //   const speedToDelay = { 1: 500, 2: 200, 3: 100, 4: 50, 5: 25 };
-  //   setDelay(speedToDelay[speed]);
-  // }, [speed]);
 
   useEffect(() => {
     const tempCellData = Array(gridSize * gridSize).fill(90);
@@ -88,6 +82,7 @@ export default function Life() {
 
   const updateGridSize = (e, value) => {
     e.preventDefault();
+    setIsRunning(false);
     setGeneration(0);
     setGridSize(value);
     return gridSize;
@@ -102,7 +97,6 @@ export default function Life() {
     if (e) {
       e.preventDefault();
     }
-    setIsRunning(false);
     setGeneration(0);
     setGridSize(gridSize);
     setSpeed(speed);
@@ -120,28 +114,33 @@ export default function Life() {
 
   const random = e => {
     e.preventDefault();
+    setIsRunning(false);
     setGeneration(0);
-    setCellData(
-      cellData.map(cell => {
-        return Math.round(Math.random()) === 1 ? 91 : 90;
-      })
-    );
+    setTimeout(() => {
+      setCellData(
+        cellData.map(cell => {
+          return Math.round(Math.random()) === 1 ? 91 : 90;
+        })
+      );
+    }, 100);
   };
 
   const clear = e => {
     e.preventDefault();
+    setIsRunning(false);
     setGeneration(0);
-    setCellData(
-      Array.apply(null, Array(gridSize * gridSize)).map(
-        Number.prototype.valueOf,
-        90
-      )
-    );
+    setTimeout(() => {
+      setCellData(
+        Array.apply(null, Array(gridSize * gridSize)).map(
+          Number.prototype.valueOf,
+          90
+        )
+      );
+    }, 100);
   };
 
   const next = (gridSize, cellData) => {
     const tempCellData = generate(gridSize, cellData);
-    console.log('hello: ', speedToDelay[speed]);
     if (!tempCellData) {
       setIsRunning(false);
     } else {
@@ -195,6 +194,7 @@ export default function Life() {
         preset={preset}
         random={random}
         clear={clear}
+        setIsRunning={setIsRunning}
       />
       <About />
     </Box>

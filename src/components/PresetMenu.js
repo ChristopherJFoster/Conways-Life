@@ -76,7 +76,7 @@ const StyledMenuItem = withStyles(theme => ({
   }
 }))(MenuItem);
 
-export default function PresetMenu({ preset }) {
+export default function PresetMenu({ preset, setIsRunning }) {
   // const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -85,6 +85,7 @@ export default function PresetMenu({ preset }) {
   }
 
   function presetHandler(e, gridSize, delay, data) {
+    setIsRunning(false);
     preset(e, gridSize, delay, data);
     handleClose();
   }
