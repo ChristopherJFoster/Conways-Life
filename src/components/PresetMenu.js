@@ -11,10 +11,10 @@ import glider from '../presets/glider';
 import flock from '../presets/flock';
 import largeflock from '../presets/largeflock';
 import LWSSs from '../presets/LWSSs';
-import MWSS from '../presets/MWSSs';
-import HWSS from '../presets/HWSSs';
+import MWSSs from '../presets/MWSSs';
+import HWSSs from '../presets/HWSSs';
 import gosper from '../presets/gosper';
-import title from '../presets/title';
+import conway from '../presets/conway';
 
 const StyledMenu = withStyles(theme => ({
   paper: {
@@ -174,7 +174,7 @@ export default function PresetMenu({ preset, setIsRunning }) {
           <ListItemText
             primary='Mediumweight Spaceship'
             onClick={e =>
-              presetHandler(e, MWSS.gridSize, MWSS.speed, MWSS.data)
+              presetHandler(e, MWSSs.gridSize, MWSSs.speed, MWSSs.data)
             }
           />
         </StyledMenuItem>
@@ -182,7 +182,7 @@ export default function PresetMenu({ preset, setIsRunning }) {
           <ListItemText
             primary='Heavyweight Spaceship'
             onClick={e =>
-              presetHandler(e, HWSS.gridSize, HWSS.speed, HWSS.data)
+              presetHandler(e, HWSSs.gridSize, HWSSs.speed, HWSSs.data)
             }
           />
         </StyledMenuItem>
@@ -190,7 +190,7 @@ export default function PresetMenu({ preset, setIsRunning }) {
           <ListItemText
             primary="Conway's Life"
             onClick={e =>
-              presetHandler(e, title.gridSize, title.speed, title.data)
+              presetHandler(e, conway.gridSize, conway.speed, conway.data)
             }
           />
         </StyledMenuItem>

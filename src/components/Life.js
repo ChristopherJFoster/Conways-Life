@@ -11,7 +11,7 @@ import C64_Title from '../assets/SVGs/C64_Title.svg';
 import Grid from './Grid';
 import Controls from './Controls';
 import About from './About';
-import title from '../presets/title';
+import conway from '../presets/conway';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -49,7 +49,7 @@ export default function Life() {
   const speedToDelay = { 1: 1000, 2: 500, 3: 200, 4: 75, 5: 25 };
 
   useEffect(() => {
-    preset(null, title.gridSize, title.speed, title.data);
+    preset(null, conway.gridSize, conway.speed, conway.data);
   }, []);
 
   useEffect(() => {
