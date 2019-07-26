@@ -15,28 +15,51 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const marks = [
+  {
+    value: 1,
+    label: '1'
+  },
+  {
+    value: 2,
+    label: '2'
+  },
+  {
+    value: 3,
+    label: '3'
+  },
+  {
+    value: 4,
+    label: '4'
+  },
+  {
+    value: 5,
+    label: '5'
+  }
+];
+
 function valuetext(value) {
   return `${value}`;
 }
 
-export default function DelaySlider({ delay, updateDelay }) {
+export default function SpeedSlider({ speed, updateSpeed }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Typography className={classes.display} id='discrete-slider' gutterBottom>
-        Delay (lower is faster)
+        Speed
       </Typography>
       <Slider
-        onChange={(e, value) => updateDelay(e, value)}
-        value={delay}
+        onChange={(e, value) => updateSpeed(e, value)}
+        value={speed}
         getAriaValueText={valuetext}
         aria-labelledby='discrete-slider'
         valueLabelDisplay='auto'
-        step={25}
-        marks
-        min={25}
-        max={2000}
+        step={1}
+        marks={marks}
+        min={1}
+        max={5}
       />
     </div>
   );

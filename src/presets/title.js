@@ -1,6 +1,6 @@
 const title = {
   gridSize: 40,
-  delay: 25,
+  speed: 5,
   data: [
     75,
     114,

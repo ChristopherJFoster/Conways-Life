@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 import PresetMenu from './PresetMenu';
 import GridSizeSlider from './GridSizeSlider';
-import DelaySlider from './DelaySlider';
+import SpeedSlider from './SpeedSlider';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -29,9 +29,7 @@ const useStyles = makeStyles(theme => ({
   bottomRow: {
     padding: '10px 0',
     display: 'grid',
-    // gridTemplateColumns: 'repeat(5, minmax(45px, 1fr))',
-    gridTemplateColumns:
-      'repeat(4, [col-start] minmax(45px, 65px) [col-end]) [col-start] minmax(140px, 140px) [col-end]',
+    gridTemplateColumns: 'repeat(4, minmax(45px, 65px)) minmax(140px, 140px)',
     justifyContent: 'space-between'
   },
   playPauseButton: {
@@ -45,29 +43,6 @@ const useStyles = makeStyles(theme => ({
       fill: theme.palette.alive.i
     }
   },
-  // playPauseIcon: {
-  //   [theme.breakpoints.down('xl')]: {
-  //     width: '10%'
-  //   },
-  //   [theme.breakpoints.down('md')]: {
-  //     width: '50%',
-  //     height: '50%'
-  //   },
-  //   [theme.breakpoints.down('sm')]: {
-  //     width: '100%'
-  //   }
-  // },
-  // stepIcon: {
-  //   [theme.breakpoints.down('xl')]: {
-  //     width: '100%'
-  //   },
-  //   [theme.breakpoints.down('md')]: {
-  //     width: '100%'
-  //   },
-  //   [theme.breakpoints.down('sm')]: {
-  //     width: '100%'
-  //   }
-  // },
   randomButton: {
     background: theme.palette.dead.a,
     border: `3px solid ${theme.palette.alive.a}`,
@@ -77,23 +52,12 @@ const useStyles = makeStyles(theme => ({
       background: theme.palette.dead.c
     }
   },
-  // randomIcon: {
-  //   [theme.breakpoints.down('xl')]: {
-  //     width: '100%'
-  //   },
-  //   [theme.breakpoints.down('md')]: {
-  //     width: '100%'
-  //   },
-  //   [theme.breakpoints.down('sm')]: {
-  //     width: '100%'
-  //   }
-  // },
   randomIconBack: {
     position: 'absolute',
     fill: theme.palette.dead.i
   },
   randomIconFore: {
-    padding: '10px',
+    padding: '13px',
     position: 'absolute',
     fill: theme.palette.alive.a,
     '&:hover': {
@@ -109,17 +73,6 @@ const useStyles = makeStyles(theme => ({
       background: theme.palette.dead.c
     }
   },
-  // clearIcon: {
-  //   [theme.breakpoints.down('xl')]: {
-  //     width: '100%'
-  //   },
-  //   [theme.breakpoints.down('md')]: {
-  //     width: '100%'
-  //   },
-  //   [theme.breakpoints.down('sm')]: {
-  //     width: '100%'
-  //   }
-  // },
   clearIconBack: {
     fill: theme.palette.dead.i
   }
@@ -131,8 +84,8 @@ export default function Controls({
   step,
   random,
   gridSize,
-  delay,
-  updateDelay,
+  speed,
+  updateSpeed,
   preset,
   updateGridSize,
   clear
@@ -147,7 +100,7 @@ export default function Controls({
           Generation: {generation}
         </Typography>
         <GridSizeSlider gridSize={gridSize} updateGridSize={updateGridSize} />
-        <DelaySlider delay={delay} updateDelay={updateDelay} />
+        <SpeedSlider speed={speed} updateSpeed={updateSpeed} />
       </div>
       <div className={classes.bottomRow}>
         <Button className={classes.playPauseButton} onClick={e => playPause(e)}>

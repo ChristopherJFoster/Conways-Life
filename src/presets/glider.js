@@ -1,6 +1,6 @@
 const glider = {
   gridSize: 10,
-  delay: 25,
+  speed: 5,
   data: [68, 76, 77, 87, 88]
 };
 

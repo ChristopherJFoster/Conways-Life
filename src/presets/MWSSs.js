@@ -1,6 +1,6 @@
 const MWSSs = {
   gridSize: 20,
-  delay: 25,
+  speed: 5,
   data: [
     90,
     91,

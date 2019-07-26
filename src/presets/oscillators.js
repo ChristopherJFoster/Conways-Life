@@ -1,6 +1,6 @@
 const oscillators = {
   gridSize: 30,
-  delay: 100,
+  speed: 3,
   data: [
     134,
     135,

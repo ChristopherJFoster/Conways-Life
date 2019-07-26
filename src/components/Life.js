@@ -44,12 +44,19 @@ export default function Life() {
   const cellDataRef = useRef();
   const [gridSize, setGridSize] = useState(20);
   const [generation, setGeneration] = useState(0);
-  const [delay, setDelay] = useState(50);
+  const [speed, setSpeed] = useState(5);
+  // const [delay, setDelay] = useState(25);
   const [isRunning, setIsRunning] = useState(false);
+  const speedToDelay = { 1: 500, 2: 200, 3: 100, 4: 50, 5: 25 };
 
   useEffect(() => {
-    preset(null, title.gridSize, title.delay, title.data);
+    preset(null, title.gridSize, title.speed, title.data);
   }, []);
+
+  // useEffect(() => {
+  //   const speedToDelay = { 1: 500, 2: 200, 3: 100, 4: 50, 5: 25 };
+  //   setDelay(speedToDelay[speed]);
+  // }, [speed]);
 
   useEffect(() => {
     const tempCellData = Array(gridSize * gridSize).fill(90);
@@ -86,19 +93,19 @@ export default function Life() {
     return gridSize;
   };
 
-  const updateDelay = (e, value) => {
+  const updateSpeed = (e, value) => {
     e.preventDefault();
-    setDelay(value);
+    setSpeed(value);
   };
 
-  const preset = (e, gridSize, delay, data) => {
+  const preset = (e, gridSize, speed, data) => {
     if (e) {
       e.preventDefault();
     }
     setIsRunning(false);
     setGeneration(0);
     setGridSize(gridSize);
-    setDelay(delay);
+    setSpeed(speed);
     setTimeout(() => {
       const tempCellData = cellDataRef.current.map((cell, index) => {
         if (data.includes(index)) {
@@ -133,10 +140,8 @@ export default function Life() {
   };
 
   const next = (gridSize, cellData) => {
-    // const start = Date.now();
     const tempCellData = generate(gridSize, cellData);
-    // const end = Date.now();
-    // console.log(end - start);
+    console.log('hello: ', speedToDelay[speed]);
     if (!tempCellData) {
       setIsRunning(false);
     } else {
@@ -145,7 +150,10 @@ export default function Life() {
     }
   };
 
-  useInterval(() => next(gridSize, cellData), isRunning ? delay : null);
+  useInterval(
+    () => next(gridSize, cellData),
+    isRunning ? speedToDelay[speed] : null
+  );
 
   const playPause = e => {
     e.preventDefault();
@@ -176,11 +184,10 @@ export default function Life() {
         isRunning={isRunning}
       />
       <Controls
-        delay={delay}
-        updateDelay={updateDelay}
+        speed={speed}
+        updateSpeed={updateSpeed}
         gridSize={gridSize}
         updateGridSize={updateGridSize}
-        setDelay={setDelay}
         generation={generation}
         cellData={cellData}
         playPause={playPause}
