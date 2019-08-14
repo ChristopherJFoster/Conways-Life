@@ -5,15 +5,15 @@ import useTheme from '@material-ui/styles/useTheme';
 const useStyles = makeStyles(theme => ({
   cell: {
     width: '100%',
-    height: '100%'
-  }
+    height: '100%',
+  },
 }));
 
 const MemoizedCell = React.memo(function Cell({
   index,
   status,
   toggleCellManual,
-  isRunning
+  isRunning,
 }) {
   const classes = useStyles();
   const theme = useTheme();
@@ -59,7 +59,7 @@ const MemoizedCell = React.memo(function Cell({
             ? [theme.palette.dead.h]
             : status === 90
             ? [theme.palette.dead.i]
-            : null
+            : null,
       }}
       className={classes.cell}
     />

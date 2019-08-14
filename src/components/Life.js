@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import makeStyles from '@material-ui/styles/makeStyles';
-// import useTheme from '@material-ui/styles/useTheme';
 import Box from '@material-ui/core/Box';
 
 import useInterval from '../utilities/useInterval';
@@ -20,25 +19,24 @@ const useStyles = makeStyles(theme => ({
     height: '90vmin',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   titleDiv: {
     width: '70%',
-    margin: '20px 0 10px 0'
+    margin: '20px 0 10px 0',
   },
   title: {
-    width: '100%'
+    width: '100%',
   },
   breakpointDisplayDiv: {
     position: 'absolute',
     padding: '0 20px',
-    background: 'rgba(0%, 0%, 0%, .65)'
-  }
+    background: 'rgba(0%, 0%, 0%, .65)',
+  },
 }));
 
 export default function Life() {
   const classes = useStyles();
-  // const theme = useTheme();
 
   const [cellData, setCellData] = useState([]);
   const cellDataRef = useRef();
@@ -81,7 +79,9 @@ export default function Life() {
   };
 
   const updateGridSize = (e, value) => {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     setIsRunning(false);
     setGeneration(0);
     setGridSize(value);
@@ -178,7 +178,6 @@ export default function Life() {
         <img className={classes.title} src={C64_Title} alt="Conway's Life" />
       </div>
       <Grid
-        className={classes.grid}
         cellData={cellData}
         gridSize={gridSize}
         toggleCellManual={toggleCellManual}
