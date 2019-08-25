@@ -4,16 +4,17 @@ export default createMuiTheme({
   variables: {},
   navLinks: {},
   transitions: {
-    create: () => 'none'
+    create: () => 'none',
   },
   breakpoints: {
     values: {
-      xs: 0,
+      xxs: 0,
+      xs: 400,
       sm: 600,
       md: 900,
       lg: 1200,
-      xl: 1800
-    }
+      xl: 1800,
+    },
   },
   palette: {
     main: '#242424',
@@ -27,7 +28,7 @@ export default createMuiTheme({
       f: '#adfff1',
       g: '#c4fff5',
       h: '#dbfff9',
-      i: '#ffffff'
+      i: '#ffffff',
     },
     // blue
     dead: {
@@ -39,10 +40,10 @@ export default createMuiTheme({
       f: '#000066',
       g: '#00004a',
       h: '#00002e',
-      i: '#000000'
-    }
+      i: '#000000',
+    },
   },
   typography: {
-    fontFamily: 'c64_proregular'
-  }
+    fontFamily: 'c64_proregular',
+  },
 });
