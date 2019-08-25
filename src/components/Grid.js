@@ -1,6 +1,6 @@
 import React from 'react';
 import makeStyles from '@material-ui/styles/makeStyles';
-import classNames from 'classnames';
+import cc from 'classcat';
 
 import MemoizedCell from './MemoizedCell';
 
@@ -32,10 +32,10 @@ export default function Grid({
 
   return (
     <div
-      className={classNames(
+      className={cc([
         classes.grid,
-        isRunning ? classes.running : classes.paused
-      )}
+        isRunning ? classes.running : classes.paused,
+      ])}
       style={{
         gridTemplate: `repeat(${gridSize}, 1fr) / repeat(${gridSize}, 1fr)`,
       }}
