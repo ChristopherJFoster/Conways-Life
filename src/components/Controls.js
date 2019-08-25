@@ -10,75 +10,75 @@ import SpeedSlider from './SpeedSlider';
 
 const useStyles = makeStyles(theme => ({
   container: {
-    width: '80%'
+    width: '70%',
   },
   display: {
-    color: [theme.palette.alive.c]
+    color: [theme.palette.alive.c],
   },
   topRow: {
     padding: '10px 0',
     display: 'grid',
     gridTemplateColumns: '40% 30% 30%',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   generation: {
     color: [theme.palette.alive.c],
-    fontSize: '1.5em'
+    fontSize: '1.5em',
   },
   genData: {
-    color: theme.palette.alive.i
+    color: theme.palette.alive.i,
   },
   bottomRow: {
     padding: '10px 0',
     display: 'grid',
     gridTemplateColumns: 'repeat(4, minmax(45px, 45px)) minmax(140px, 140px)',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   playPauseButton: {
     background: theme.palette.dead.a,
     fill: theme.palette.alive.a,
     border: `3px solid ${theme.palette.alive.a}`,
-    borderRadius: 0,
+    borderRadius: '4px',
     '&:hover': {
       border: `3px solid ${theme.palette.alive.i}`,
       backgroundColor: theme.palette.dead.c,
-      fill: theme.palette.alive.i
-    }
+      fill: theme.palette.alive.i,
+    },
   },
   randomButton: {
     background: theme.palette.dead.a,
     border: `3px solid ${theme.palette.alive.a}`,
-    borderRadius: 0,
+    borderRadius: '4px',
     '&:hover': {
       border: `3px solid ${theme.palette.alive.i}`,
-      background: theme.palette.dead.c
-    }
+      background: theme.palette.dead.c,
+    },
   },
   randomIconBack: {
     position: 'absolute',
-    fill: theme.palette.dead.i
+    fill: theme.palette.dead.i,
   },
   randomIconFore: {
     padding: '13px',
     position: 'absolute',
     fill: theme.palette.alive.a,
     '&:hover': {
-      fill: theme.palette.alive.i
-    }
+      fill: theme.palette.alive.i,
+    },
   },
   clearButton: {
     background: theme.palette.dead.a,
     border: `3px solid ${theme.palette.alive.a}`,
-    borderRadius: 0,
+    borderRadius: '4px',
     '&:hover': {
       border: `3px solid ${theme.palette.alive.i}`,
-      background: theme.palette.dead.c
-    }
+      background: theme.palette.dead.c,
+    },
   },
   clearIconBack: {
-    fill: theme.palette.dead.i
-  }
+    fill: theme.palette.dead.i,
+  },
 }));
 
 export default function Controls({
@@ -92,7 +92,7 @@ export default function Controls({
   preset,
   updateGridSize,
   clear,
-  setIsRunning
+  setIsRunning,
 }) {
   const classes = useStyles();
   // const theme = useTheme();

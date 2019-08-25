@@ -7,6 +7,7 @@ import MemoizedCell from './MemoizedCell';
 const useStyles = makeStyles(theme => ({
   grid: {
     border: `3px solid ${theme.palette.alive.a}`,
+    borderRadius: '4px',
     display: 'grid',
     minWidth: '75%',
     width: '75%',

@@ -21,19 +21,19 @@ const StyledMenu = withStyles(theme => ({
     background: [theme.palette.dead.a],
     color: [theme.palette.alive.a],
     border: `3px solid ${theme.palette.alive.a}`,
-    borderRadius: 0
-  }
+    borderRadius: 0,
+  },
 }))(props => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
     anchorOrigin={{
       vertical: 'bottom',
-      horizontal: 'center'
+      horizontal: 'center',
     }}
     transformOrigin={{
       vertical: 'top',
-      horizontal: 'center'
+      horizontal: 'center',
     }}
     {...props}
   />
@@ -45,25 +45,25 @@ const StyledButton = withStyles(theme => ({
     background: theme.palette.dead.a,
     color: theme.palette.alive.a,
     border: `3px solid ${theme.palette.alive.a}`,
-    borderRadius: 0,
+    borderRadius: '4px',
     '&:hover': {
       border: `3px solid ${theme.palette.alive.i}`,
       backgroundColor: theme.palette.dead.c,
-      color: theme.palette.alive.i
+      color: theme.palette.alive.i,
     },
     [theme.breakpoints.down('xl')]: {
-      fontSize: '1.2em'
+      fontSize: '1.2em',
     },
     [theme.breakpoints.down('md')]: {
-      fontSize: '1em'
+      fontSize: '1em',
     },
     [theme.breakpoints.down('sm')]: {
-      fontSize: '.8em'
+      fontSize: '.8em',
     },
     [theme.breakpoints.down('xs')]: {
-      fontSize: '.6em'
-    }
-  }
+      fontSize: '.6em',
+    },
+  },
 }))(Button);
 
 const StyledMenuItem = withStyles(theme => ({
@@ -71,10 +71,10 @@ const StyledMenuItem = withStyles(theme => ({
     '&:hover': {
       backgroundColor: theme.palette.dead.c,
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-        color: theme.palette.alive.i
-      }
-    }
-  }
+        color: theme.palette.alive.i,
+      },
+    },
+  },
 }))(MenuItem);
 
 export default function PresetMenu({ preset, setIsRunning }) {

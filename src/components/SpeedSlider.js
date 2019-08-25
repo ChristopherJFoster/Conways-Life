@@ -6,48 +6,48 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles(theme => ({
   root: {
     width: 150,
-    padding: 24
+    padding: 24,
   },
   margin: {
-    height: theme.spacing(3)
+    height: theme.spacing(3),
   },
   sliderLabel: {
-    color: theme.palette.alive.a
-  }
+    color: theme.palette.alive.a,
+  },
 }));
 
 const marks = [
   {
     value: 1,
-    label: 1
+    label: 1,
   },
   {
     value: 2,
-    label: 2
+    label: 2,
   },
   {
     value: 3,
-    label: 3
+    label: 3,
   },
   {
     value: 4,
-    label: 4
+    label: 4,
   },
   {
     value: 5,
-    label: 5
-  }
+    label: 5,
+  },
 ];
 
 const StyledSlider = withStyles(theme => ({
   root: {
     color: theme.palette.alive.a,
-    height: 8
+    height: 8,
   },
   thumb: {
     height: 24,
     width: 24,
-    borderRadius: '0',
+    borderRadius: '3px',
     backgroundColor: theme.palette.dead.a,
     border: `2px solid ${theme.palette.alive.a}`,
     marginTop: -8,
@@ -55,27 +55,27 @@ const StyledSlider = withStyles(theme => ({
     '&:focus,&:hover,&$active': {
       boxShadow: 'inherit',
       backgroundColor: theme.palette.dead.c,
-      border: `2px solid ${theme.palette.alive.i}`
-    }
+      border: `2px solid ${theme.palette.alive.i}`,
+    },
   },
   active: {
-    border: `2px solid ${theme.palette.alive.i}`
+    border: `2px solid ${theme.palette.alive.i}`,
   },
   track: {
     height: 8,
-    borderRadius: 0
+    borderRadius: 0,
   },
   rail: {
     height: 8,
-    borderRadius: 0
+    borderRadius: 0,
   },
   mark: {
-    display: 'none'
+    display: 'none',
   },
   markLabel: {
     paddingTop: '10px',
-    color: theme.palette.alive.a
-  }
+    color: theme.palette.alive.a,
+  },
 }))(Slider);
 
 export default function SpeedSlider({ speed, updateSpeed }) {
