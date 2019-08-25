@@ -1,41 +1,73 @@
 import React from 'react';
+import cc from 'classcat';
 import makeStyles from '@material-ui/styles/makeStyles';
-// import useTheme from '@material-ui/styles/useTheme';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   rectangle: {
-    width: '80%',
-    margin: '20px auto'
+    width: '75%',
+    margin: '20px auto',
   },
   section: {
     background:
       'linear-gradient(90deg, rgba(0,0,255,1) 0%, rgba(0,0,0,1) 100%)',
     border: `3px solid ${theme.palette.alive.a}`,
-    borderRadius: '8px',
-    marginBottom: '20px'
+    borderRadius: '4px',
+    marginBottom: '20px',
   },
   title: {
     display: 'flex',
-    padding: '10px 20px 0 20px',
-    width: '100%',
-    fontSize: '3em',
-    color: [theme.palette.alive.a]
+    color: [theme.palette.alive.a],
+    [theme.breakpoints.down('xl')]: {
+      padding: '20px 20px 0 20px',
+      fontSize: '2.4em',
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: '2em',
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: '10px 10px 0 10px',
+      fontSize: '1.6em',
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1.2em',
+    },
+    [theme.breakpoints.only('xxs')]: {
+      fontSize: '0.9em',
+    },
   },
   text: {
-    padding: '10px 20px',
-    fontSize: '1.6em',
-    color: [theme.palette.alive.e]
+    color: [theme.palette.alive.e],
+    [theme.breakpoints.down('xl')]: {
+      padding: '10px 20px',
+      fontSize: '1.2em',
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1em',
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: '5px 10px',
+      fontSize: '0.8em',
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '0.6em',
+    },
+    [theme.breakpoints.only('xxs')]: {
+      fontSize: '0.45em',
+    },
   },
   bullet: {
-    padding: '0 20px',
-    fontSize: '1.3em',
-    color: [theme.palette.alive.e]
+    [theme.breakpoints.down('xl')]: {
+      padding: '0 20px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: '0 10px',
+    },
   },
   link: {
     color: [theme.palette.alive.i],
-    textDecoration: 'none'
-  }
+    textDecoration: 'none',
+  },
 }));
 
 export default function About() {
@@ -53,17 +85,17 @@ export default function About() {
           cell and the state of its direct neighbors in both the cardinal and
           diagonal directions:
         </Typography>
-        <Typography className={classes.bullet}>
+        <Typography className={cc([classes.text, classes.bullet])}>
           • A live cell will stay alive if it has 2 or 3 live neighbors.
         </Typography>
-        <Typography className={classes.bullet}>
+        <Typography className={cc([classes.text, classes.bullet])}>
           • A live cell will die if it has any number of live neighbors other
           than 2 or 3.
         </Typography>
-        <Typography className={classes.bullet}>
+        <Typography className={cc([classes.text, classes.bullet])}>
           • A dead cell will be reborn if it has exactly 3 live neighbors.
         </Typography>
-        <Typography className={classes.bullet}>
+        <Typography className={cc([classes.text, classes.bullet])}>
           • A dead cell will stay dead if it has any number of live neighbors
           other than 3.
         </Typography>
@@ -80,20 +112,20 @@ export default function About() {
           system) must be able to perform the primary functions of a Turing
           machine. A Turing machine has the following features/abilities:
         </Typography>
-        <Typography className={classes.bullet}>
+        <Typography className={cc([classes.text, classes.bullet])}>
           • Can read data from memory.
         </Typography>
-        <Typography className={classes.bullet}>
+        <Typography className={cc([classes.text, classes.bullet])}>
           • Can write data to memory.
         </Typography>
-        <Typography className={classes.bullet}>
+        <Typography className={cc([classes.text, classes.bullet])}>
           • Can perform a simple conditional (an if/then statement).
         </Typography>
-        <Typography className={classes.bullet}>
+        <Typography className={cc([classes.text, classes.bullet])}>
           • Can go to (goto) another location in memory, skipping the memory
           locations along the way (necessary to perform a conditional).
         </Typography>
-        <Typography className={classes.bullet}>
+        <Typography className={cc([classes.text, classes.bullet])}>
           • Can access an infinite amount of memory. This feature is generally
           relaxed, as no computer has an infinite amount of memory.
         </Typography>
