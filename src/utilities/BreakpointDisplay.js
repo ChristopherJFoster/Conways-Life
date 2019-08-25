@@ -8,21 +8,21 @@ const useStyles = makeStyles(theme => ({
   breakpointText: {
     color: 'white',
     [theme.breakpoints.only('xl')]: {
-      fontSize: '3em'
+      fontSize: '3em',
     },
     [theme.breakpoints.only('lg')]: {
-      fontSize: '3em'
+      fontSize: '3em',
     },
     [theme.breakpoints.only('md')]: {
-      fontSize: '3em'
+      fontSize: '3em',
     },
     [theme.breakpoints.only('sm')]: {
-      fontSize: '2em'
+      fontSize: '2em',
     },
-    [theme.breakpoints.only('xs')]: {
-      fontSize: '1.5em'
-    }
-  }
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1em',
+    },
+  },
 }));
 
 export default function BreakpointDisplay() {
@@ -31,6 +31,12 @@ export default function BreakpointDisplay() {
 
   return (
     <div>
+      {useMediaQuery(theme.breakpoints.only('xxs')) && (
+        <Typography className={classes.breakpointText}>
+          xxs: {theme.breakpoints.values.xxs}px - {theme.breakpoints.values.xs}
+          px
+        </Typography>
+      )}
       {useMediaQuery(theme.breakpoints.only('xs')) && (
         <Typography className={classes.breakpointText}>
           xs: {theme.breakpoints.values.xs}px - {theme.breakpoints.values.sm}px
