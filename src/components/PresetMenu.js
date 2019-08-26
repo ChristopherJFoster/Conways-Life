@@ -41,7 +41,6 @@ const StyledMenu = withStyles(theme => ({
 
 const StyledButton = withStyles(theme => ({
   root: {
-    padding: '5px 15px 0 15px',
     background: theme.palette.dead.a,
     color: theme.palette.alive.a,
     border: `3px solid ${theme.palette.alive.a}`,
@@ -52,16 +51,18 @@ const StyledButton = withStyles(theme => ({
       color: theme.palette.alive.i,
     },
     [theme.breakpoints.down('xl')]: {
+      padding: '5px 15px 0 15px',
       fontSize: '1.2em',
     },
     [theme.breakpoints.down('md')]: {
       fontSize: '1em',
     },
     [theme.breakpoints.down('sm')]: {
-      fontSize: '.8em',
+      fontSize: '0.8em',
     },
     [theme.breakpoints.down('xs')]: {
-      fontSize: '.6em',
+      padding: '3px 15px 0 15px',
+      fontSize: '0.6em',
     },
   },
 }))(Button);
