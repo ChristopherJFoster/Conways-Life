@@ -15,8 +15,8 @@ import conway from '../presets/conway';
 const useStyles = makeStyles(theme => ({
   container: {
     margin: '0 auto',
-    width: '90vmin',
-    height: '90vmin',
+    width: '90vw',
+    height: '90vw',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
