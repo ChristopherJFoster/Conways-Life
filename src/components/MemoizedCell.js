@@ -4,6 +4,8 @@ import useTheme from '@material-ui/styles/useTheme';
 
 const useStyles = makeStyles(theme => ({
   cell: {
+    // maxWidth: '100%',
+    // maxHeight: '100%',
     width: '100%',
     height: '100%',
   },

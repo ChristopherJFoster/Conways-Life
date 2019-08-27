@@ -6,18 +6,18 @@ import MemoizedCell from './MemoizedCell';
 
 const useStyles = makeStyles(theme => ({
   grid: {
-    [theme.breakpoints.down('xl')]: {
-      border: `3px solid ${theme.palette.alive.a}`,
-    },
-    [theme.breakpoints.down('xs')]: {
-      border: `2px solid ${theme.palette.alive.a}`,
-    },
-    borderRadius: '4px',
     display: 'grid',
+    // minWidth: '100%',
+    width: '100%',
+    // minHeight: '100%',
+    height: '100%',
+  },
+  borderDiv: {
     minWidth: '75%',
     width: '75%',
     minHeight: '75%',
     height: '75%',
+    borderRadius: '4px',
   },
   paused: {
     [theme.breakpoints.down('xl')]: {
@@ -48,24 +48,28 @@ export default function Grid({
   return (
     <div
       className={cc([
-        classes.grid,
+        classes.borderDiv,
         isRunning ? classes.running : classes.paused,
       ])}
-      style={{
-        gridTemplate: `repeat(${gridSize}, 1fr) / repeat(${gridSize}, 1fr)`,
-      }}
     >
-      {cellData.map((cell, index) => {
-        return (
-          <MemoizedCell
-            key={index}
-            index={index}
-            status={cell}
-            toggleCellManual={toggleCellManual}
-            isRunning={isRunning}
-          />
-        );
-      })}
+      <div
+        className={classes.grid}
+        style={{
+          gridTemplate: `repeat(${gridSize}, 1fr) / repeat(${gridSize}, 1fr)`,
+        }}
+      >
+        {cellData.map((cell, index) => {
+          return (
+            <MemoizedCell
+              key={index}
+              index={index}
+              status={cell}
+              toggleCellManual={toggleCellManual}
+              isRunning={isRunning}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
