@@ -11,7 +11,12 @@ const useStyles = makeStyles(theme => ({
   section: {
     background:
       'linear-gradient(90deg, rgba(0,0,255,1) 0%, rgba(0,0,0,1) 100%)',
-    border: `3px solid ${theme.palette.alive.a}`,
+    [theme.breakpoints.down('xl')]: {
+      border: `3px solid ${theme.palette.alive.a}`,
+    },
+    [theme.breakpoints.down('xs')]: {
+      border: `2px solid ${theme.palette.alive.a}`,
+    },
     borderRadius: '4px',
     marginBottom: '20px',
   },

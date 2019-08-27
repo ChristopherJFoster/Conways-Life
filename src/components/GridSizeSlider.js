@@ -9,17 +9,8 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xl')]: {
       padding: '24px',
     },
-    [theme.breakpoints.down('md')]: {
-      //
-    },
     [theme.breakpoints.down('sm')]: {
       padding: '10px 24px',
-    },
-    [theme.breakpoints.down('xs')]: {
-      //
-    },
-    [theme.breakpoints.only('xxs')]: {
-      //
     },
   },
   margin: {

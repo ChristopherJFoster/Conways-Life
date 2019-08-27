@@ -33,9 +33,6 @@ const useStyles = makeStyles(theme => ({
       display: 'flex',
       flexDirection: 'column',
     },
-    [theme.breakpoints.only('xxs')]: {
-      // gridTemplateColumns: '30% 35% 35%',
-    },
   },
   generation: {
     color: [theme.palette.alive.c],
@@ -48,12 +45,6 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.down('sm')]: {
       fontSize: '1em',
-    },
-    [theme.breakpoints.down('xs')]: {
-      // fontSize: '1.5em',
-    },
-    [theme.breakpoints.only('xxs')]: {
-      // fontSize: '1.5em',
     },
   },
   genData: {
@@ -109,7 +100,12 @@ const useStyles = makeStyles(theme => ({
     fill: theme.palette.alive.a,
     borderRadius: '4px',
     '&:hover': {
-      border: `3px solid ${theme.palette.alive.i}`,
+      [theme.breakpoints.down('xl')]: {
+        border: `3px solid ${theme.palette.alive.i}`,
+      },
+      [theme.breakpoints.down('xs')]: {
+        border: `2px solid ${theme.palette.alive.i}`,
+      },
       backgroundColor: theme.palette.dead.c,
       fill: theme.palette.alive.i,
     },
@@ -137,7 +133,12 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.dead.a,
     borderRadius: '4px',
     '&:hover': {
-      border: `3px solid ${theme.palette.alive.i}`,
+      [theme.breakpoints.down('xl')]: {
+        border: `3px solid ${theme.palette.alive.i}`,
+      },
+      [theme.breakpoints.down('xs')]: {
+        border: `2px solid ${theme.palette.alive.i}`,
+      },
       background: theme.palette.dead.c,
     },
   },
@@ -159,7 +160,12 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.dead.a,
     borderRadius: '4px',
     '&:hover': {
-      border: `3px solid ${theme.palette.alive.i}`,
+      [theme.breakpoints.down('xl')]: {
+        border: `3px solid ${theme.palette.alive.i}`,
+      },
+      [theme.breakpoints.down('xs')]: {
+        border: `2px solid ${theme.palette.alive.i}`,
+      },
       background: theme.palette.dead.c,
     },
   },

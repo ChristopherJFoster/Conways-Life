@@ -45,7 +45,12 @@ const StyledButton = withStyles(theme => ({
     color: theme.palette.alive.a,
     borderRadius: '4px',
     '&:hover': {
-      border: `3px solid ${theme.palette.alive.i}`,
+      [theme.breakpoints.down('xl')]: {
+        border: `3px solid ${theme.palette.alive.i}`,
+      },
+      [theme.breakpoints.down('xs')]: {
+        border: `2px solid ${theme.palette.alive.i}`,
+      },
       backgroundColor: theme.palette.dead.c,
       color: theme.palette.alive.i,
     },
