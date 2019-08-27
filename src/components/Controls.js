@@ -49,8 +49,9 @@ const useStyles = makeStyles(theme => ({
       // gridTemplateColumns: 'repeat(4, minmax(15px, 15px)) minmax(70px, 70px)',
     },
   },
-  squareButtonSizer: {
+  squareButton: {
     [theme.breakpoints.down('xl')]: {
+      border: `3px solid ${theme.palette.alive.a}`,
       minWidth: '0',
       minHeight: '0',
       width: '80px',
@@ -64,7 +65,7 @@ const useStyles = makeStyles(theme => ({
       height: '40px',
     },
     [theme.breakpoints.down('xs')]: {
-      //
+      border: `2px solid ${theme.palette.alive.a}`,
     },
     [theme.breakpoints.only('xxs')]: {
       minWidth: '0',
@@ -76,12 +77,26 @@ const useStyles = makeStyles(theme => ({
   playPauseButton: {
     background: theme.palette.dead.a,
     fill: theme.palette.alive.a,
-    border: `3px solid ${theme.palette.alive.a}`,
     borderRadius: '4px',
     '&:hover': {
       border: `3px solid ${theme.palette.alive.i}`,
       backgroundColor: theme.palette.dead.c,
       fill: theme.palette.alive.i,
+    },
+    [theme.breakpoints.down('xl')]: {
+      padding: '10px',
+    },
+    [theme.breakpoints.down('md')]: {
+      padding: '10px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: '5px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: '5px',
+    },
+    [theme.breakpoints.only('xxs')]: {
+      padding: '3px',
     },
   },
   playPauseSVG: {
@@ -90,7 +105,6 @@ const useStyles = makeStyles(theme => ({
   },
   randomButton: {
     background: theme.palette.dead.a,
-    border: `3px solid ${theme.palette.alive.a}`,
     borderRadius: '4px',
     '&:hover': {
       border: `3px solid ${theme.palette.alive.i}`,
@@ -113,7 +127,6 @@ const useStyles = makeStyles(theme => ({
   },
   clearButton: {
     background: theme.palette.dead.a,
-    border: `3px solid ${theme.palette.alive.a}`,
     borderRadius: '4px',
     '&:hover': {
       border: `3px solid ${theme.palette.alive.i}`,
@@ -172,7 +185,7 @@ export default function Controls({
       </div>
       <div className={classes.bottomRow}>
         <Button
-          className={cc([classes.squareButtonSizer, classes.playPauseButton])}
+          className={cc([classes.squareButton, classes.playPauseButton])}
           onClick={e => playPause(e)}
         >
           <svg
@@ -184,7 +197,7 @@ export default function Controls({
           </svg>
         </Button>
         <Button
-          className={cc([classes.squareButtonSizer, classes.playPauseButton])}
+          className={cc([classes.squareButton, classes.playPauseButton])}
           onClick={e => step(e)}
         >
           <svg
@@ -196,7 +209,7 @@ export default function Controls({
           </svg>
         </Button>
         <Button
-          className={cc([classes.squareButtonSizer, classes.randomButton])}
+          className={cc([classes.squareButton, classes.randomButton])}
           onClick={e => random(e)}
         >
           <svg
@@ -216,7 +229,7 @@ export default function Controls({
           </svg>
         </Button>
         <Button
-          className={cc([classes.squareButtonSizer, classes.clearButton])}
+          className={cc([classes.squareButton, classes.clearButton])}
           onClick={e => clear(e)}
         >
           <svg
