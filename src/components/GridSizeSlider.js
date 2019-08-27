@@ -6,7 +6,21 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles(theme => ({
   root: {
     width: 150,
-    padding: 24,
+    [theme.breakpoints.down('xl')]: {
+      padding: '24px',
+    },
+    [theme.breakpoints.down('md')]: {
+      //
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: '10px 24px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      //
+    },
+    [theme.breakpoints.only('xxs')]: {
+      //
+    },
   },
   margin: {
     height: theme.spacing(3),

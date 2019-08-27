@@ -18,13 +18,43 @@ const useStyles = makeStyles(theme => ({
   topRow: {
     padding: '10px 0',
     display: 'grid',
-    gridTemplateColumns: '40% 30% 30%',
     justifyContent: 'space-between',
     alignItems: 'center',
+    [theme.breakpoints.down('xl')]: {
+      gridTemplateColumns: '40% 30% 30%',
+    },
+    [theme.breakpoints.down('md')]: {
+      gridTemplateColumns: '34% 33% 33%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      gridTemplateColumns: '30% 35% 35%',
+    },
+    [theme.breakpoints.down('xs')]: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    [theme.breakpoints.only('xxs')]: {
+      // gridTemplateColumns: '30% 35% 35%',
+    },
   },
   generation: {
     color: [theme.palette.alive.c],
-    fontSize: '1.5em',
+    [theme.breakpoints.down('xl')]: {
+      fontSize: '1.5em',
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1.2em',
+      paddingRight: '10px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1em',
+    },
+    [theme.breakpoints.down('xs')]: {
+      // fontSize: '1.5em',
+    },
+    [theme.breakpoints.only('xxs')]: {
+      // fontSize: '1.5em',
+    },
   },
   genData: {
     color: theme.palette.alive.i,
@@ -46,7 +76,7 @@ const useStyles = makeStyles(theme => ({
       gridTemplateColumns: 'repeat(4, minmax(20px, 20px)) minmax(80px, 80px)',
     },
     [theme.breakpoints.only('xxs')]: {
-      // gridTemplateColumns: 'repeat(4, minmax(15px, 15px)) minmax(70px, 70px)',
+      //
     },
   },
   squareButton: {
