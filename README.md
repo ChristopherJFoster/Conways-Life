@@ -29,3 +29,13 @@ In addition to being writers and creators, coders are problem-solvers. Ideally, 
 ### What Did I Learn? (Deployment to the Rescue)
 
 One of the project requirements was to deploy the app, so once I was reasonably happy with styling, I pointed Netlify at my repo. My app deployed without issue (always nice, but especially so after midnight). I had heard from another Lambda School student that he got a performance boost upon deployment, but I expected it to be relatively minor. I was excited to discover that I was wrong! Deployed, my app runs at respectable speeds, even at the larger grid sizes. None of the previous React apps I'd worked with were running any serious algorithms, much less numerous times per second. As such, I'd never noticed any performance difference between the development and production environments. My biggest takeaway from this project, technically speaking, is that there is a significant difference in performance between the 'quick-build' of **yarn start** and the full production build of **deployment**. Now I know that when necessary I can emulate a production build with **yarn build** instead.
+
+## Tech Stack
+
+- JavaScript
+- React (Hooks)
+- Material-UI
+- CSS3
+- JSS
+- less
+- SVG
